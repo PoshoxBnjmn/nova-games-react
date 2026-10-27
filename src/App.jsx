@@ -19,6 +19,7 @@ function App() {
 
     const [busqueda, setBusqueda] = useState('')
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('')
+    const [plataformaSeleccionada, setPlataformaSeleccionada] = useState('')
     const [orden, setOrden] = useState('relevancia')
 
 
@@ -54,6 +55,7 @@ function App() {
     )
 
     const categorias = [...new Set(productos.map(p => p.categoria))]
+    const plataformas = [...new Set(productos.flatMap(p => p.plataformas))]
 
     let productosFiltrados = productos.filter(producto => {
         const coincideNombre = producto.nombre
@@ -64,7 +66,10 @@ function App() {
             categoriaSeleccionada === '' ||
             producto.categoria === categoriaSeleccionada
 
-        return coincideNombre && coincideCategoria
+        const coincidePlataforma =
+            plataformaSeleccionada === '' ||
+            producto.plataformas.includes(plataformaSeleccionada)
+        return coincideNombre && coincideCategoria && coincidePlataforma
     })
 
     if (orden === 'nombre') {
@@ -80,6 +85,7 @@ function App() {
     function limpiarFiltros() {
         setBusqueda('')
         setCategoriaSeleccionada('')
+        setPlataformaSeleccionada('')
         setOrden('relevancia')
     }
 
@@ -150,8 +156,11 @@ function App() {
                 <Catalogo
                     productos={productosFiltrados}
                     categorias={categorias}
+                    plataformas={plataformas}
                     categoriaSeleccionada={categoriaSeleccionada}
                     onCambiarCategoria={setCategoriaSeleccionada}
+                    plataformaSeleccionada={plataformaSeleccionada}
+                    onCambiarPlataforma={setPlataformaSeleccionada}
                     busqueda={busqueda}
                     onCambiarBusqueda={setBusqueda}
                     orden={orden}

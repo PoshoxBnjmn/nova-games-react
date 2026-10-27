@@ -5,10 +5,11 @@ import TarjetaProducto from './TarjetaProducto.jsx'
 function Catalogo({
     productos,
     categorias,
+    plataformas,
     categoriaSeleccionada,
     onCambiarCategoria,
-    busqueda,
-    onCambiarBusqueda,
+    plataformaSeleccionada,
+    onCambiarPlataforma,
     orden,
     onCambiarOrden,
     onLimpiarFiltros,
@@ -22,15 +23,6 @@ function Catalogo({
                 <h4>Filtros</h4>
 
                 <Form>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Buscar juego</Form.Label>
-                        <Form.Control
-                            type="search"
-                            value={busqueda}
-                            onChange={(e) => onCambiarBusqueda(e.target.value)}
-                            placeholder="Nombre del juego"
-                        />
-                    </Form.Group>
 
                     <h5>Categoría</h5>
 
@@ -52,6 +44,28 @@ function Catalogo({
                         checked={categoriaSeleccionada === ''}
                         onChange={() => onCambiarCategoria('')}
                     />
+
+                    <h5>Plataforma</h5>
+
+                    {plataformas.map((plataforma) => (
+                        <Form.Check
+                            key={plataforma}
+                            type="radio"
+                            name="plataforma"
+                            label={plataforma}
+                            checked={plataformaSeleccionada === plataforma}
+                            onChange={() => onCambiarPlataforma(plataforma)}
+                        />
+                    ))}
+
+                    <Form.Check
+                        type="radio"
+                        name="plataforma"
+                        label="Todas"
+                        checked={plataformaSeleccionada === ''}
+                        onChange={() => onCambiarPlataforma('')}
+                    />
+
 
                     <Form.Group className="mt-3">
                         <Form.Label>Ordenar por</Form.Label>
