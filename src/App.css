@@ -62,6 +62,29 @@ body {
 }
 
 /* Panel de filtros */
+.filter-panel {
+    align-self: flex-start;
+    padding: 20px;
+    background-color: #111111;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+#catalogo .filter-panel h4,
+#catalogo .filter-panel h5 {
+    color: #ffffff;
+}
+
+#catalogo .filter-panel form {
+    color: #ffffff;
+}
+
+.filter-panel .btn-outline-secondary {
+    color: #ffffff;
+    border-color: #292929;
+}
+
 #catalogo form {
     color: #d3d3d3;
 }

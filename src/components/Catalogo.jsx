@@ -19,7 +19,7 @@ function Catalogo({
         <Row className="g-4">
 
             {/* Barra lateral */}
-            <Col xs={12} md={3}>
+            <Col xs={12} md={3} className="filter-panel">
                 <h4>Filtros</h4>
 
                 <Form>

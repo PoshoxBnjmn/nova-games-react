@@ -20,7 +20,7 @@ function Encabezado({
                         <img
                             src={logo}
                             alt="Nova Games"
-                            width="45"
+                            width="65"
                             height="45"
                             className="me-2"
                         />
