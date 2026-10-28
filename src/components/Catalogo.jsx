@@ -26,9 +26,10 @@ function Catalogo({
 
                     <h5>Categoría</h5>
 
-                    {categorias.map((categoria) => (
+                    {categorias.map((categoria, index) => (
                         <Form.Check
                             key={categoria}
+                            id={`categoria-${index}`}
                             type="radio"
                             name="categoria"
                             label={categoria}
@@ -39,6 +40,7 @@ function Catalogo({
 
                     <Form.Check
                         type="radio"
+                        id="categoria-todas"
                         name="categoria"
                         label="Todas"
                         checked={categoriaSeleccionada === ''}
@@ -47,9 +49,10 @@ function Catalogo({
 
                     <h5>Plataforma</h5>
 
-                    {plataformas.map((plataforma) => (
+                    {plataformas.map((plataforma, index) => (
                         <Form.Check
                             key={plataforma}
+                            id={`plataforma-${index}`}
                             type="radio"
                             name="plataforma"
                             label={plataforma}
@@ -60,6 +63,7 @@ function Catalogo({
 
                     <Form.Check
                         type="radio"
+                        id="plataforma-todas"
                         name="plataforma"
                         label="Todas"
                         checked={plataformaSeleccionada === ''}

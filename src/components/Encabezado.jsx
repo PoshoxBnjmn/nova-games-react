@@ -2,7 +2,7 @@
 import {   Navbar,  Nav,  Container, Button,   Badge, Form, FormControl
 } from 'react-bootstrap'
 
-import logo from '/imagenes/logo/Nova-Games-logo.png'
+const logo = '/imagenes/logo/Nova-Games-logo.png'
 
 function Encabezado({
     cantidad,
